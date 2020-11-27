@@ -1,0 +1,14 @@
+version: "2"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./DockerFile
+    image: add-one-club-backend:local
+    restart: always
+    env_file:
+      - ./local.env
+    ports:
+      - "5001:5001"
+    # volumes:
+      # - ..:/opt/workdir
