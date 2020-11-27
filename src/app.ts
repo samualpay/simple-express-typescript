@@ -2,6 +2,7 @@ import BaseController from './controller/BaseController'
 import express, { RequestHandler } from 'express'
 import { Application } from 'express'
 import errorMiddleware from './middleware/errorMiddleware'
+import path from 'path'
 
 class App {
     public app: Application
@@ -28,8 +29,8 @@ class App {
         this.app.use(errorMiddleware)
     }
     private assets() {
-        this.app.use(express.static('public'))
-        this.app.use(express.static('views'))
+        this.app.use(express.static(path.join(__dirname, 'public')))
+        this.app.set('views', path.join(__dirname, "views"))
     }
 
     private template() {
