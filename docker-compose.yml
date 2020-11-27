@@ -10,5 +10,5 @@ services:
       - ./local.env
     ports:
       - "5001:5001"
-    # volumes:
-      # - ..:/opt/workdir
+    volumes:
+      - ./volume:/opt/workdir/dist/public/images
